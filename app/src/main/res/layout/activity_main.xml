@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:onClick="playSong"/>
+
+    <Button
+        android:id="@+id/upLeftButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/upRightButton"
+        android:layout_alignStart="@+id/downLeftButton"
+        android:layout_marginBottom="-124dp"
+        android:onClick="upLeft"
+        android:text="+ Left"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="111dp" />
+
+    <Button
+        android:id="@+id/downLeftButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="153dp"
+        android:onClick="downLeft"
+        android:text="- left"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="219dp" />
+
+    <Button
+        android:id="@+id/upRightButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="54dp"
+        android:layout_marginTop="77dp"
+        android:onClick="upRight"
+        android:text="+ Right"
+        tools:layout_editor_absoluteX="258dp"
+        tools:layout_editor_absoluteY="111dp" />
+
+    <Button
+        android:id="@+id/downRightButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/upRightButton"
+        android:layout_alignTop="@+id/downLeftButton"
+        android:onClick="downRight"
+        android:text="- Right"
+        tools:layout_editor_absoluteX="258dp"
+        tools:layout_editor_absoluteY="219dp" />
+
+    <Button
+        android:id="@+id/pauseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Pause"
+        android:onClick="pauseSong"/>
+
+    <Button
+        android:id="@+id/allLeftButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/upLeftButton"
+        android:layout_centerVertical="true"
+        android:text="100% L"
+        android:onClick="allLeft"/>
+
+    <Button
+        android:id="@+id/allRightButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/upRightButton"
+        android:layout_centerVertical="true"
+        android:text="100% R"
+        android:onClick="allRight"/>
+
+    <Button
+        android:id="@+id/equalButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="56dp"
+        android:text="Equalize"
+        android:onClick="equalize"/>
+
+</RelativeLayout>
