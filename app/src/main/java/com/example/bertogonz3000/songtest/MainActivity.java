@@ -146,4 +146,10 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         song.release();
     }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        song.release();
+    }
 }
