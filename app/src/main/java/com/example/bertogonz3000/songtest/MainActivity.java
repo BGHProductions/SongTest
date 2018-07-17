@@ -1,5 +1,6 @@
 package com.example.bertogonz3000.songtest;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.media.AudioAttributes;
 import android.media.AudioFormat;
@@ -175,8 +176,13 @@ public class MainActivity extends AppCompatActivity {
         song = MediaPlayer.create(MainActivity.this, R.raw.heyjude);
     }
 
-    public void seekArc(View view) {
+    public void phoneVolumeArc(View view) {
         Intent intent = new Intent(MainActivity.this, SeekArcActivity.class);
+        startActivity(intent);
+    }
+
+    public void musicVolumeArc(View view) {
+        Intent intent = new Intent(MainActivity.this, MusicArcActivity.class);
         startActivity(intent);
     }
 }

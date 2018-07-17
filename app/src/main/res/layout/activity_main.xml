@@ -99,14 +99,24 @@
         android:onClick="equalize"/>
 
     <Button
-        android:id="@+id/SeekArcButton"
+        android:id="@+id/ArcPhoneVolume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:onClick="seekArc"
         android:layout_marginBottom="128dp"
         android:layout_marginEnd="16dp"
-        android:text="Arc" />
+        android:onClick="phoneVolumeArc"
+        android:text="Phone Arc" />
+
+
+    <Button
+        android:id="@+id/musicArcButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/upLeftButton"
+        android:layout_alignTop="@+id/ArcPhoneVolume"
+        android:onClick="musicVolumeArc"
+        android:text="Music Arc" />
 
 </RelativeLayout>

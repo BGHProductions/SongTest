@@ -2,19 +2,24 @@ package com.example.bertogonz3000.songtest;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.sdsmdg.harjot.crollerTest.Croller;
 import com.sdsmdg.harjot.crollerTest.OnCrollerChangeListener;
-public class SeekArcActivity extends AppCompatActivity {
+
+public class MusicArcActivity extends AppCompatActivity {
     private AudioManager audioManager = null;
+    MediaPlayer song;
+    float rightVol, leftVol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seek_arc);
+        setContentView(R.layout.activity_music_arc);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
 
@@ -37,6 +42,24 @@ public class SeekArcActivity extends AppCompatActivity {
         croller.setProgress(audioManager
                 .getStreamVolume(AudioManager.STREAM_MUSIC));
 
+
+        rightVol = 1;
+        leftVol = 1;
+
+        //TODO - Copy a soundfile into a new directory under "res" and place it here
+        //TODO - as the second argument
+        song = MediaPlayer.create(MusicArcActivity.this, R.raw.heyjude);
+
+        MediaPlayer.TrackInfo[] trackInfo = song.getTrackInfo();
+
+        AudioAttributes attributes = new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_MEDIA)
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .build();
+
+        song.setAudioAttributes(attributes);
+
+
         croller.setOnCrollerChangeListener(new OnCrollerChangeListener() {
             @Override
             public void onProgressChanged(Croller croller, int progress) {
@@ -48,6 +71,8 @@ public class SeekArcActivity extends AppCompatActivity {
             @Override
             public void onStartTrackingTouch(Croller croller) {
                 // tracking started
+                song.setVolume(leftVol,rightVol);
+                song.start();
             }
 
             @Override
@@ -55,5 +80,6 @@ public class SeekArcActivity extends AppCompatActivity {
                 // tracking stopped
             }
         });
+
     }
 }
