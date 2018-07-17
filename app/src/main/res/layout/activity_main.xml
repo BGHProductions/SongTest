@@ -98,4 +98,15 @@
         android:text="Equalize"
         android:onClick="equalize"/>
 
+    <Button
+        android:id="@+id/SeekArcButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="seekArc"
+        android:layout_marginBottom="128dp"
+        android:layout_marginEnd="16dp"
+        android:text="Arc" />
+
 </RelativeLayout>

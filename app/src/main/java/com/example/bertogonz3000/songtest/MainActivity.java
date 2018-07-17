@@ -1,7 +1,9 @@
 package com.example.bertogonz3000.songtest;
 
+import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.AudioFormat;
 import android.media.AudioTrack;
-import android.media.MediaFormat;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Log.e("HELLO!", trackInfo[0].getFormat().getString(Integer.toString(AudioFormat.CHANNEL_OUT_SIDE_LEFT)));
+//        Log.e("HELLO!", trackInfo[0].getFormat().getString(Integer.toString(AudioFormat.CHANNEL_OUT_SIDE_LEFT)));
 //
 //        int outputBufferSize = AudioTrack.getMinBufferSize(16000,
 //                AudioFormat.CHANNEL_OUT_7POINT1_SURROUND,
@@ -160,16 +162,21 @@ public class MainActivity extends AppCompatActivity {
         song = null;
     }
 
-    @Override
-    protected void onStop(){
-        super.onStop();
-        song.release();
-        song = null;
-    }
+//    @Override
+//    protected void onStop(){
+//        super.onStop();
+//        song.release();
+//        song = null;
+//    }
 
     @Override
     protected void onResume(){
         super.onResume();
         song = MediaPlayer.create(MainActivity.this, R.raw.heyjude);
+    }
+
+    public void seekArc(View view) {
+        Intent intent = new Intent(MainActivity.this, SeekArcActivity.class);
+        startActivity(intent);
     }
 }
