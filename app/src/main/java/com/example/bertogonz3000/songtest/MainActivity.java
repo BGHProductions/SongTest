@@ -4,6 +4,7 @@ import android.media.AudioAttributes;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
+import android.media.MediaFormat;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     SoundPool.Builder soundPoolBuilder;
     SoundPool soundPool;
     int loadID;
+    AudioFormat format;
 
     float rightVol, leftVol;
 
@@ -49,13 +51,27 @@ public class MainActivity extends AppCompatActivity {
 //
 //        loadID = soundPool.load(this, R.raw.heyjudy, 1);
 
+        //format = new AudioFormat.Builder();
 
         rightVol = 1;
         leftVol = 1;
 
         //TODO - Copy a soundfile into a new directory under "res" and place it here
         //TODO - as the second argument
-        song = MediaPlayer.create(MainActivity.this, );
+        song = MediaPlayer.create(MainActivity.this, R.raw.heyjude);
+
+        MediaPlayer.TrackInfo[] trackInfo = song.getTrackInfo();
+
+        AudioAttributes attributes = new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_MEDIA)
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .build();
+
+        song.setAudioAttributes(attributes);
+
+
+
+        Log.e("HELLO!", trackInfo[0].getFormat().getString(Integer.toString(AudioFormat.CHANNEL_OUT_SIDE_LEFT)));
 //
 //        int outputBufferSize = AudioTrack.getMinBufferSize(16000,
 //                AudioFormat.CHANNEL_OUT_7POINT1_SURROUND,
@@ -145,11 +161,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause(){
         super.onPause();
         song.release();
+        song = null;
     }
 
     @Override
     protected void onStop(){
         super.onStop();
         song.release();
+        song = null;
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        song = MediaPlayer.create(MainActivity.this, R.raw.heyjude);
     }
 }
