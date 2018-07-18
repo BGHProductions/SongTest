@@ -7,6 +7,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.sdsmdg.harjot.crollerTest.Croller;
 import com.sdsmdg.harjot.crollerTest.OnCrollerChangeListener;
@@ -82,4 +83,14 @@ public class MusicArcActivity extends AppCompatActivity {
         });
 
     }
+
+
+    public void pauseSong(View view){
+        song.pause();
+    }
+
+    public void playSong(View view) {
+        song.start();
+    }
+
 }

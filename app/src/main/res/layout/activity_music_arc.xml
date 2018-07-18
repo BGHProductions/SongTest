@@ -21,4 +21,25 @@
         app:progress_secondary_color="#EEEEEE"
         app:start_offset="45" />
 
+    <ImageButton
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/holo_purple"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/pauseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/playButton"
+        android:onClick="pauseSong"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_purple"
+        app:srcCompat="@android:drawable/ic_media_pause" />
+
 </RelativeLayout>
